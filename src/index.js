@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Keyboard, Modal, Platform, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Keyboard, Modal, Platform, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native';
 import PropTypes from 'prop-types';
 import isEqual from 'lodash.isequal';
 import { Picker } from '@react-native-picker/picker';
@@ -418,7 +418,7 @@ export default class RNPickerSelect extends PureComponent {
 
         return (
             <View style={[defaultStyles.viewContainer, style.viewContainer]}>
-                <TouchableOpacity
+                <TouchableWithoutFeedback
                     testID="ios_touchable_wrapper"
                     onPress={() => {
                         this.togglePicker(true);
@@ -427,7 +427,7 @@ export default class RNPickerSelect extends PureComponent {
                     {...touchableWrapperProps}
                 >
                     {this.renderTextInputOrChildren()}
-                </TouchableOpacity>
+                </TouchableWithoutFeedback>
                 <Modal
                     testID="ios_modal"
                     visible={showPicker}
